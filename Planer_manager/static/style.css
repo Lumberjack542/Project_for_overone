@@ -1,0 +1,61 @@
+.shape {
+	margin: auto;
+    margin-left: 160px;
+    margin-bottom: 50px ;
+  	width: 20%;
+    border: 3px solid darkgrey;
+    padding: 50px;
+    border-radius: 45px;
+    float: left;
+    background: #FAFAD2;
+
+
+   
+}
+
+.title{
+	margin: auto;
+	height: 50px;
+
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img img{
+    width: 100px;
+    height: 150px;
+    object-fit: cover;  
+    
+}
+
+.description{
+	margin: auto;
+	height: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;	
+}
+
+.img img{
+	width: ;
+}
+
+
+.wrapper{
+    width: 50%; 
+    margin-top: 50px; 
+    margin-left: 400px; 
+    margin-right:500px ;
+    border: 3px solid darkgrey;
+    background: #FAFAD2;
+    padding: 50px;
+
+}
+
+.tit{
+    
+    border: 3px solid green;
+
+}

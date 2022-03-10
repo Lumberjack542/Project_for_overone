@@ -1,7 +1,8 @@
 from django.forms import ModelForm, TextInput, Textarea
-
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from .models import Planer, Comment
-
+from django import forms
 
 class PlanerForm(ModelForm):
     class Meta:
@@ -20,3 +21,18 @@ class PlanerForm(ModelForm):
             }),
 
         }
+
+
+class UserRegisterForm(UserCreationForm):
+    username = forms.CharField(max_length=50, label='Имя пользователя', widget=forms.TextInput(
+        attrs={'class': 'form-control', 'autofocus': None}))
+    password1 = forms.CharField(max_length=50, label='Пароль', widget=forms.PasswordInput(
+        attrs={'class': 'form-control'}))
+    password2 = forms.CharField(max_length=50, label='Подтверждение пароля', widget=forms.PasswordInput(
+        attrs={'class': 'form-control'}))
+    email = forms.EmailField(label='Email', widget=forms.EmailInput(
+        attrs={'class': 'form-control'}))
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password1', 'password2')

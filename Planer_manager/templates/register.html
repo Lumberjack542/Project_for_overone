@@ -38,18 +38,30 @@
     </div>
   </div>
 </header>   
-    
+<style type="text/css">
+   .block1 { 
+    width: 300px; 
+    background: #ccc;
+    padding: 5px;
+    padding-right: 20px; 
+    border: solid 1px black; 
+    float: left;
+    margin-top: 20px;
+    margin-left: 750px;
+   }
+  
+  </style>    
 </head>
 <body>
-<div class='wrapper'>
-  <h1>Register</h1>
-    <form method="post" action="">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button class="btn btn-success" type="submit">Register</button>
+    <div class="block1">
+      <h1>Register</h1>
+        <form method="post">
+          {% csrf_token %}
+          <div class="">{{ form.as_p }}</div>
+          <button class="btn btn-success" type="submit">Register</button>
       
     </form>
-</div> 
+  </div> 
     
         
     

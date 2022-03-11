@@ -4,8 +4,9 @@ from django.views import View
 from django.views.generic import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from .models import Planer
-from .forms import PlanerForm, UserRegisterForm
+from .forms import PlanerForm, UserRegisterForm, UserLoginForm
 from django.contrib import messages
+from django.contrib.auth import login, logout
 # Create your views here.
 
 
@@ -36,7 +37,8 @@ def register(request):
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            login(request, user)
             messages.success(request, "registration completed successfully")
             return redirect('main_page')
         else:
@@ -46,5 +48,15 @@ def register(request):
     return render(request, 'register.html', {"form": form})
 
 
-def login(request):
-    return render(request, 'ligin.html')
+def user_login(request):
+    form = UserLoginForm()
+    if request.method == 'POST':
+        form = UserLoginForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('main_page')
+        else:
+            form = UserLoginForm()
+
+    return render(request, 'login.html', {'form': form})

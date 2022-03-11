@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from .models import Planer, Comment
 from django import forms
 
+
 class PlanerForm(ModelForm):
     class Meta:
         model = Planer
@@ -25,8 +26,8 @@ class PlanerForm(ModelForm):
 
 class UserRegisterForm(UserCreationForm):
     username = forms.CharField(max_length=50, label='Имя пользователя', widget=forms.TextInput(
-        attrs={'class': 'form-control', 'autofocus': None}))
-    password1 = forms.CharField(max_length=50, label='Пароль', widget=forms.PasswordInput(
+        attrs={'class': 'form-control', 'autocomplete': 'off'}))
+    password1 = forms.CharField(max_length=50, label='Пароль', help_text='*Пароль должен содержать прописные и строчные буквы', widget=forms.PasswordInput(
         attrs={'class': 'form-control'}))
     password2 = forms.CharField(max_length=50, label='Подтверждение пароля', widget=forms.PasswordInput(
         attrs={'class': 'form-control'}))

@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "Planer_manager"
+    "Planer_manager",
+    "book_shop"
 ]
 
 MIDDLEWARE = [

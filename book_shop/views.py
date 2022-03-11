@@ -19,4 +19,4 @@ def hello(request, name='vlad', digit=None):
 class MyPage(View):
     def get(self, request):
         context = {'books': Book.objects.all()}
-        return render(request, 'index.html', context)
+        return render(request, 'book_shop/books.html', context)

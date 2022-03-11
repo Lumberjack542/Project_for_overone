@@ -28,13 +28,9 @@
   </div>
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container">
-      <a href="/planer" class="navbar-brand d-flex align-items-center">
+      <a href="/" class="navbar-brand d-flex align-items-center">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-        <strong>create Planer</strong>
-      </a>
-      <a href="book_shop/books" class="navbar-brand d-flex align-items-center">
-        
-        <strong>Books</strong>
+        <strong>Planer</strong>
       </a>
       <span class="navbar-text">
       	<a href="{% url 'register' %}">Register</a> | <a href="{% url 'login' %}">Login</a>
@@ -44,30 +40,33 @@
       </button>
     </div>
   </div>
-</header>	
-	
+</header>
+
 </head>
 <body >
-	<div class="row py-lg-5">
+  <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Planer example</h1>
+        <h1 class="fw-light">Books example</h1>
         <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
       </div>
     </div>
    
-	{% for i in element %}
-		<div class="shape">
-			<div class="img">
-				<img src="{{i.image}}">
-			</div>
-			<div class="title">
-				{{ i.title }}
-			</div>
-			<div class="description">
-				{{ i.description }}
-			</div>
+  {% for el in books %}
+	<div class="shape">
+    
+        <h2>{{ el.title }}</h2>
+        <h2>{{ el.date }}</h2>
+        <h5>{{ el.comments.count }}</h5>
+        {% for comment in el.comments.all %}
+            <h4>{{ comment.text }}</h4>
+            <h5>{{ comment.date }}</h5>
+            <h6>{{ comment.author }}</h6>
+        {% endfor %}
+        <br>
+    
+  </div>
+{% endfor %}
+  
 
-		</div>
-	{% endfor %}
 </body>
 </html>

@@ -4,5 +4,5 @@ from book_shop.views import hello, MyPage
 urlpatterns = [
 
     path('hello/', hello),
-    path('', MyPage.as_view(), name='the-main-page')
+    path('books', MyPage.as_view(), name='book_page')
 ]
